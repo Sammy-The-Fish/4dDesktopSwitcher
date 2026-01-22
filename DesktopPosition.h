@@ -8,12 +8,12 @@
 #include <vector>
 using namespace std;
 
-class FourDVector {
+class DesktopPosition {
 private:
 public:
     vector<int> pos;
 
-    explicit FourDVector(vector<int> &pos);
+    explicit DesktopPosition(vector<int> &pos);
 
     int hash() const;
 

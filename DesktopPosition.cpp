@@ -2,17 +2,18 @@
 // Created by sam on 20/01/2026.
 //
 
-#include "FourDVector.h"
+#include "DesktopPosition.h"
 
 #include <fstream>
 #include <iostream>
 #include <utility>
 
-FourDVector::FourDVector(vector<int> &pos) {
+
+DesktopPosition::DesktopPosition(vector<int> &pos) {
     this->pos = pos;
 }
 
-int FourDVector::hash() const {
+int DesktopPosition::hash() const {
     int total = 0;
     for (int x : pos) {
         total += x * 101;
@@ -20,14 +21,13 @@ int FourDVector::hash() const {
     return total;
 }
 
-void FourDVector::changeIndex(int i, int delta) {
+void DesktopPosition::changeIndex(int i, int delta) {
     if (pos[i] + delta <= 100 && pos[i] + delta >= 1) {
-        cout << "test\n";
         pos[i] += delta;
     }
 }
 
-string FourDVector::toString() const {
+string DesktopPosition::toString() const {
     string out = "";
     for (const int x : pos) {
         out += to_string(x) + " ";
@@ -35,7 +35,7 @@ string FourDVector::toString() const {
 
     return out;
 }
-int FourDVector::save() const {
+int DesktopPosition::save() const {
     string path = getenv("HOME");
     path += "/pos";
 
@@ -50,7 +50,7 @@ int FourDVector::save() const {
 }
 
 
-int FourDVector::move() {
+int DesktopPosition::move() {
     const string command = "hyprctl dispatch workspace " + to_string(hash());
     return system(command.c_str());
 }
