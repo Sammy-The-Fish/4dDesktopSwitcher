@@ -16,7 +16,9 @@ find_package(Qt6 COMPONENTS
 
 add_executable(4dDesktopSwitcher main.cpp
         DesktopPosition.cpp
-        DesktopPosition.h)
+        DesktopPosition.h
+        UI.cpp
+        UI.h)
 
 
 target_link_libraries(4dDesktopSwitcher

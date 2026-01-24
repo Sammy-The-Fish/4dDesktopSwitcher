@@ -11,7 +11,10 @@ using namespace std;
 class DesktopPosition {
 private:
 public:
+    int size;
     vector<int> pos;
+
+
 
     explicit DesktopPosition(vector<int> &pos);
 
@@ -25,7 +28,10 @@ public:
 
     int save() const;
 
+    int getIndex(int i);
 };
+
+DesktopPosition load();
 
 
 #endif //INC_4DDESKTOPSWITCHER_FOURDVECTOR_H

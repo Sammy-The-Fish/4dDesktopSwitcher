@@ -4,72 +4,13 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QLabel>
+#include <QFileSystemWatcher>
 #include "DesktopPosition.h"
+#include "UI.h"
+
 
 using namespace  std;
 
-int gui(int argc, char** argv) {
-    QFont font ("Jetbrains Mono");
-    QApplication a(argc, argv);
-
-    const int columns = 4;
-
-
-    QWidget window;
-    window.setFixedSize(500,150);
-
-    QGridLayout layout = QGridLayout();
-
-    QLabel title = QLabel("Desktop Switcher");
-
-    layout.addWidget(&title, 0, 0, 1, columns, Qt::AlignHCenter);
-
-    int values[columns] = {0};
-
-
-    for (int i =0; i< columns; i++) {
-        QPushButton *plusButton = new QPushButton("+");
-        QLabel *label = new QLabel("0");
-        QPushButton *minusButton = new QPushButton("-");
-
-        QObject::connect(plusButton, &QPushButton::clicked, [label, i, &values]() {
-            values[i] += 1;
-            QString test = QString::number(values[i]);
-            label->setText(test);
-        } );
-
-
-        QObject::connect(minusButton, &QPushButton::clicked, [label, i, &values]() {
-            values[i] -= 1;
-            label->setText(QString::number(values[i]));
-        });
-
-        layout.addWidget(plusButton, 1, i);
-        layout.addWidget(label, 2, i, Qt::AlignCenter);
-        layout.addWidget(minusButton, 3, i);
-    }
-
-
-
-
-    window.setLayout(&layout);
-    window.show();
-    return QApplication::exec();
-}
-
-DesktopPosition load() {
-    string path = getenv("HOME");
-    path+= "/pos";
-    vector<int> pos;
-    ifstream inFile(path);
-    int x;
-    while (inFile >> x) {
-        pos.push_back(x);
-    }
-    return DesktopPosition(pos);
-
-
-}
 
 
 
