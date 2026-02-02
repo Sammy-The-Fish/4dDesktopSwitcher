@@ -11,7 +11,7 @@
 
 
 int gui(int argc, char **argv);
-void addAdjustors(QVector<QWidget*> *adjustors, QGridLayout *layout, int columns, QLabel* labels[], DesktopPosition *pos);
+void addAdjustors(QVector<QWidget*> *adjustors, QHBoxLayout *layout, int columns, QLabel* labels[], DesktopPosition *pos);
 
 
 
