@@ -57,9 +57,7 @@ int main(int argc, char* argv[]) {
             << "run without argument to launch GUI\n"
             << "-H --help: show this argument\n"
             << "-R --reset {x}: reset program with x dimensions\n"
-            << "-C --change {x} {d}: change dimension x by delta d\n";
-
-
+            << "-C --change {x} {d}: change dimension x by delta d\n" <<endl;
         } else if (arg == "-C" || arg == "--change") {
             DesktopPosition pos = load();
 
