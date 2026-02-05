@@ -10,6 +10,7 @@ features include:
 
 ## Requirements
 - Qt 6
+- hyprland
 
 ## Installation
 1. download from [releases](https://github.com/Sammy-The-Fish/4dDesktopSwitcher/releases)
