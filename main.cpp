@@ -53,7 +53,11 @@ int main(int argc, char* argv[]) {
             return reset(size);
         }
         if (arg == "-H" || arg == "--help") {
-            cout << "";
+            cout << "Help:\n"
+            << "run without argument to launch GUI\n"
+            << "-H --help: show this argument\n"
+            << "-R --reset {x}: reset program with x dimensions\n"
+            << "-C --change {x} {d}: change dimension x by delta d\n";
 
 
         } else if (arg == "-C" || arg == "--change") {
